@@ -1,0 +1,95 @@
+<html lang="en">
+  <head>
+    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+  <body>
+  <div class="container">
+   <h1>Fill the Form Below to Register</h1>
+   <form name="registration" class="registartion-form" onsubmit="return submitForm(this);" method="post">
+       <label for="name">Name</label><br>
+       <input type="text" name="name"  class="input" id="name" pattern="[a-zA-Z]"{3,} title="name can only contains letters" required><br><br>
+
+       <label for="address">Address</label><br>
+       <input type="text" name="address"  class="input" id="address" pattern="[a-zA-Z0-9]" title="only letters and numbers are allowed" required><br><br>
+
+       <label for="email">Email</label><br>
+       <input type="email" name="email"  class="input" id="email" required><br><br>
+
+     <div class="position">
+      <label for="password">Password</label><br>
+       <input type="password" name="Password" placeholder="Enter your password" id="myInput" class="input" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$"  title="password must contain at least one lower case, one upper case and one special character"required>
+       <img src="eye.png" style="width:20px;" onclick="myFunction()"><br><br>
+      </div>
+
+       <label for="Telephone">Telephone</label><br>
+       <input type="tel" name="telephone" class="input" required><br><br>
+
+       <label for="date of birth">Your Date of Birth</label><br>
+       <input type="date" min="1985-01-01" max="2000-01-01" required><br><br>
+
+       <label for="select course">Select your course</label><br>
+       <select required>
+         <option value="" selected disabled>--Choose City--</option> 
+           <option>Chemistry</option>
+           <option>Mathematics</option>
+           <option>Physics</option>
+           <option>Biology</option>
+           <option>Others</option>
+       </select><br><br>
+
+       <label for="file upload">Upload your certificate in pdf</label><br>
+       <input type="file" accept=".pdf" max-size="2000" multiple required title="file should not be more than 2000kb"><br><br>
+
+
+       <label for="comment">Your Comment</label><br>
+       <textarea name="comment" placeholder="Enter your comment here" required></textarea><br><br>
+       <input type="submit" class="submit" value="Register" name="Submit">
+       <input type="reset" class="submit" value="Reset" name="Reset">
+
+
+       
+   </form>
+
+  </div>
+
+
+ 
+
+   
+ <script src="main.js">
+
+   function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+
+
+ function submitForm(form) {
+        swal({
+            title: "Are you sure?",
+            text: "This form will be submitted",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then(function (isOkay) {
+            if (isOkay) {
+                form.submit();
+            }
+        });
+        return false;
+    }       
+        
+ </script>
+  </body>
+  </html>    
